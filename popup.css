@@ -1,0 +1,57 @@
+.popup_back {
+    width : 100%;
+    height : 100%;
+    background-color = rgba(0,0,0,0.5);
+    color : white;
+}
+
+.pop_frame {
+    min-width: 500px;
+    min-height: : 450px;
+    background-color = rgba(0,0,0,0.7);
+    color : white;
+}
+
+.pop_title {
+    width : 100%;
+    height : 15%;
+    color = white;
+    text-align: center;
+    line-height: 15%;
+    background-color = rgba(0,0,0,0.7);
+    border: thick solod #ffffff;
+}
+
+.pop_content {
+
+    width : 100%;
+    height : 85%;
+    color = white;
+    text-align: center;
+    padding-top: 10px;
+    background-color = rgba(0,0,0,0.7);
+    border: thick solod #ffffff;
+}
+
+.action-btn {
+    height: 20px;
+    background-color: white;
+    color: red;
+}
+
+.action-btn.p-center {
+    width: 80%;
+    margin: auto;
+}
+
+.action-btn.p-left {
+    width: 35%;
+    margin-left: 10%;
+    float: left;
+}
+
+.action-btn.p-right {
+    width: 35%;
+    margin-right: 10%;
+    float:right;
+}
