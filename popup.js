@@ -1,13 +1,11 @@
 (function(window) {
 
-    const LEFT      = 0;
-    const RIGHT     = 1;
-    const CENTER    = 2;
-
     var ActionButton = function(_title, _position, _clickCallback) {
         this.title = _title;
         this.position = _position;
         this.onClickCallback = _clickCallback;
+
+        console.log(_position);
 
     };
     ActionButton.prototype.getTitle = function() {
@@ -15,10 +13,10 @@
     };
     ActionButton.prototype.getPosition = function() {
         return this.position;
-    }
+    };
     ActionButton.prototype.getOnClickCallback = function() {
         return this.onClickCallback;
-    }
+    };
 
     var Popup = function(_title, _content, _buttonArray, _alert=null) {
 
@@ -58,20 +56,21 @@
 
         var buttonArr = this.buttonArray;
 
-        if(buttonArr.length == 1 ) {
-            var btn1 = buttonArr[0];
-            var btnCenter = document.createElement("BUTTON");
-            btnCenter.className = "action-btn";
-            btnCenter.className += " p-center";
-            btnCenter.onclick = btn1.getOnClickCallback();
+        if(buttonArr.length > 0) {
+            for (var index in buttonArr) {
+                var btn = buttonArr[index];
+                var btnNew = document.createElement("BUTTON");
+                btnNew.className = "action-btn";
+                btnNew.className += btn.getPosition();
+                btnNew.onclick = btn.getOnClickCallback();
 
-            var t = document.createTextNode(btn1.getTitle());
-            btnCenter.appendChild(t);
-            bottomdiv.appendChild(btnCenter);
-        }
-        else {
+                var t = document.createTextNode(btn.getTitle());
+                btnNew.appendChild(t);
+                bottomdiv.appendChild(btnNew);
 
+            }
         }
+
 
         popdiv.appendChild(topdiv);
         popdiv.appendChild(bottomdiv);
@@ -97,6 +96,10 @@
     };
 
     var CSPopup = {
+        LEFT: " p-left",
+        RIGHT: " p-right",
+        CENTER: " p-center",
+
         makeButton: function(_title, _position, _clickCallback) {
             return new ActionButton(_title, _position, _clickCallback);
         },

@@ -22,7 +22,7 @@
         popup.hide();
     }
 
-    var btnArr = [CSPopup.makeButton("OK",CSPopup.CENTER,callback)];
+    var btnArr = [CSPopup.makeButton("OK",CSPopup.LEFT,callback),CSPopup.makeButton("CANCEL",CSPopup.RIGHT,callback)];
     popup = CSPopup.makePopup("Alert1", "test <br> flexible <br> popup <br> contents! ", btnArr, "Please go away");
 
 
