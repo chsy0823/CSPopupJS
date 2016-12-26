@@ -11,7 +11,7 @@ Custom popup view with JS
 	You can figure out how to use from example in "index.html".
 	To use CSPopup to your project, refer to below example.
 
-"`js
+```
 	var popup;
 	var callback = function() {
 		hide();
@@ -25,7 +25,8 @@ Custom popup view with JS
 
     var btnArr = [CSPopup.makeButton("OK",CSPopup.LEFT,callback),CSPopup.makeButton("CANCEL",CSPopup.RIGHT,callback)];
 	popup = CSPopup.makePopup("Alert1", "test <br> flexible <br> popup <br> contents! ", btnArr, "Please go away");
-"`
+
+```
 
 #License
 	The content of this project itself is licensed under the GPL v2, but sample emoticon images are not allowed to use public. It's owned by Korea Internet Center inc. 
