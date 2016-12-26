@@ -1,40 +1,60 @@
 .popup_back {
     width : 100%;
     height : 100%;
-    background-color = rgba(0,0,0,0.5);
+    position: absolute;
+    top :0px;
+    left: 0px;
+    background-color:  rgba(0,0,0,0.5);
     color : white;
 }
 
 .pop_frame {
-    min-width: 500px;
-    min-height: : 450px;
-    background-color = rgba(0,0,0,0.7);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20%;
+
+    background-color: rgba(0,0,0,0.5);
     color : white;
+
 }
 
 .pop_title {
-    width : 100%;
-    height : 15%;
-    color = white;
-    text-align: center;
-    line-height: 15%;
-    background-color = rgba(0,0,0,0.7);
-    border: thick solod #ffffff;
+    width : 96%;
+    height : 20%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px #ffffff;
+    padding: 2% 2%;
 }
 
 .pop_content {
 
-    width : 100%;
-    height : 85%;
-    color = white;
+    width : 90%;
+    height : 80%;
+    color: white;
+    border: solid 1px #ffffff;
     text-align: center;
-    padding-top: 10px;
-    background-color = rgba(0,0,0,0.7);
-    border: thick solod #ffffff;
+    padding: 5% 5%;
 }
 
+.pop_content_text {
+
+    width : 100%;
+    height : 55%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10%;
+}
+
+
 .action-btn {
-    height: 20px;
+    height: 30px;
     background-color: white;
     color: red;
 }
@@ -54,4 +74,14 @@
     width: 35%;
     margin-right: 10%;
     float:right;
+}
+
+.alert-msg {
+    width: 100%;
+    font-weight: bold;
+    color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10%;
 }

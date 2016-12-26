@@ -2,19 +2,17 @@
 <head>
     <link rel="stylesheet" href="popup.css">
     <script src="popup.js"></script>
+
 </head>
-<body>
+<body style="background-image: url('alice.jpg');">
     <input type="button" id="show" value="Show" onclick="show()"/>
     <input type="button" id="hide" value="Hide" onclick="hide()"/>
 </body>
 <script>
     var popup;
-    var btnArr = [CSPopup.makeButton("OK",CSPopup.CENTER,callback)];
-
-    popup = CSPopup.makePopup("Alert1", "test", btnArr);
 
     var callback = function() {
-        console.log("click!");
+        hide();
     };
     function show() {
         popup.show();
@@ -23,6 +21,11 @@
     function hide() {
         popup.hide();
     }
+
+    var btnArr = [CSPopup.makeButton("OK",CSPopup.CENTER,callback)];
+    popup = CSPopup.makePopup("Alert1", "test <br> flexible <br> popup <br> contents! ", btnArr, "Please go away");
+
+
     //var CSpop = new CSPopup;
 
 
