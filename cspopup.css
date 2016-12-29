@@ -14,15 +14,16 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 20%;
-
     background-color: rgba(0,0,0,0.5);
     color : white;
+
+    min-width: 180px;
 
 }
 
 .pop_title {
     width : 96%;
-    height : 20%;
+    height : 25%;
     color: white;
     display: flex;
     align-items: center;
@@ -34,8 +35,9 @@
 .pop_content {
 
     width : 90%;
-    height : 80%;
+    height : 75%;
     color: white;
+    font-size: 12px;
     border: solid 1px #ffffff;
     text-align: center;
     padding: 5% 5%;
@@ -52,11 +54,31 @@
     padding-bottom: 10%;
 }
 
-
 .action-btn {
     height: 30px;
     background-color: white;
     color: red;
+}
+
+.action-btn.login {
+    background: url("image/login.png") no-repeat top left;
+    cursor:pointer;
+    border: none;
+    background-size: 100% 100%;
+}
+
+.action-btn.ok {
+    background: url("image/ok.png") no-repeat top left;
+    cursor:pointer;
+    border: none;
+    background-size: 100% 100%;
+}
+
+.action-btn.cancel {
+    background: url("image/cancel.png") no-repeat top left;
+    cursor:pointer;
+    border: none;
+    background-size: 100% 100%;
 }
 
 .action-btn.p-center {
@@ -65,15 +87,14 @@
 }
 
 .action-btn.p-left {
-    width: 35%;
-    margin-left: 10%;
+    width: 40%;
+    margin-left: 7%;
     float: left;
 }
 
 .action-btn.p-right {
-    width: 35%;
-    margin-right: 10%;
-    
+    width: 40%;
+    margin-right: 5%;
 }
 
 .alert-msg {
@@ -84,4 +105,43 @@
     align-items: center;
     justify-content: center;
     padding-bottom: 10%;
+}
+
+.navibar {
+    position: absolute;
+    top:0px;
+    left:0px;
+    height: 64px;
+    line-height: 64px;
+    width: 100%;
+    text-align: center;
+    color:white;
+    background-color: rgb(206, 42, 37);
+}
+
+.navi_title {
+
+}
+.navi_btn {
+    top:0px;
+    position: absolute;
+    height: 64px;
+    width: 64px;
+}
+.navi_btn.a-back {
+    background: url("image/back.png") no-repeat top left;
+    cursor:pointer;
+    border: none;
+    background-size: 100% 100%;
+}
+.navi_btn.p-left {
+    left:0px;
+}
+
+.navi_btn.p-right {
+    right:0px;
+}
+
+.navibar.title {
+
 }

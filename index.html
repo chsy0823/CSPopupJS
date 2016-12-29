@@ -1,14 +1,30 @@
 <html>
 <head>
-    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="cspopup.css">
     <script src="popup.js"></script>
+    <script src="navibar.js"></script>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
 
+    <script>
+    $(document).ready(function(){
+        var callback_left = function() {
+            console.log("back");
+        };
+        var navi;
+        var btnArr = [CSNavibar.makeButton("BACK",CSNavibar.cssClassMap.LEFT,callback_left)];
+        navi = CSNavibar.makeNavibar("타이틀", btnArr);
+        navi.append();
+    });
+    </script>
 </head>
 <body style="background-image: url('alice.jpg');">
+
     <input type="button" id="show" value="Show" onclick="show()"/>
     <input type="button" id="hide" value="Hide" onclick="hide()"/>
+
 </body>
 <script>
+
     var popup;
 
     var callback = function() {
@@ -22,8 +38,8 @@
         popup.hide();
     }
 
-    var btnArr = [CSPopup.makeButton("OK",CSPopup.LEFT),CSPopup.makeButton("CANCEL",CSPopup.RIGHT,callback)];
-    popup = CSPopup.makePopup("Alert1", "test <br> flexible <br> popup <br> contents! ", btnArr, "Please go away");
+    var btnArr = [CSPopup.makeButton("OK",CSPopup.cssClassMap.LEFT),CSPopup.makeButton("CANCEL",CSPopup.cssClassMap.RIGHT,callback)];
+    popup = CSPopup.makePopup("종료확인", "<br>어플을 종료하시겠습니까? ", btnArr);
 
 
 </script>

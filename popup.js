@@ -5,8 +5,6 @@
         this.position = _position;
         this.onClickCallback = _clickCallback;
 
-        console.log(_position);
-
     };
     ActionButton.prototype.getTitle = function() {
         return this.title;
@@ -30,7 +28,10 @@
 
         var backdiv = document.createElement("div");
         backdiv.className = "popup_back";
-        //backdiv.onclick = this.hide();
+        backdiv.onclick = function() {
+            console.log("backdiv click");
+            backdiv.remove();
+        };
 
         var popdiv = document.createElement("div");
         popdiv.className = "pop_frame"
@@ -60,17 +61,23 @@
             for (var index in buttonArr) {
                 var btn = buttonArr[index];
                 var btnNew = document.createElement("BUTTON");
+                var title = btn.getTitle();
+
                 btnNew.className = "action-btn";
                 btnNew.className += btn.getPosition();
                 btnNew.onclick = btn.getOnClickCallback();
 
-                var t = document.createTextNode(btn.getTitle());
-                btnNew.appendChild(t);
-                bottomdiv.appendChild(btnNew);
+                if(CSPopup.cssClassMap[title]) {
+                    btnNew.className += CSPopup.cssClassMap[title];
+                }
+                else {
+                    var t = document.createTextNode(btn.getTitle());
+                    btnNew.appendChild(t);
+                }
 
+                bottomdiv.appendChild(btnNew);
             }
         }
-
 
         popdiv.appendChild(topdiv);
         popdiv.appendChild(bottomdiv);
@@ -78,15 +85,15 @@
 
         return backdiv;
     };
-    Popup.prototype.show = function() {
-        console.log("show");
-        var popupElement = this.createDOMElement();
 
+    Popup.prototype.show = function() {
+        //console.log("show");
+        var popupElement = this.createDOMElement();
         document.body.appendChild(popupElement);
 
     };
     Popup.prototype.hide = function() {
-        console.log("hide");
+        //console.log("hide");
 
         var div = document.getElementsByClassName("popup_back");
 
@@ -96,9 +103,14 @@
     };
 
     var CSPopup = {
-        LEFT: " p-left",
-        RIGHT: " p-right",
-        CENTER: " p-center",
+        cssClassMap: {
+            OK: " ok",
+            CANCEL: " cancel",
+            LOGIN: " login",
+            LEFT: " p-left",
+            RIGHT: " p-right",
+            CENTER: " p-center",
+        },
 
         makeButton: function(_title, _position, _clickCallback) {
             return new ActionButton(_title, _position, _clickCallback);
