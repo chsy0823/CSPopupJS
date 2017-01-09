@@ -110,9 +110,8 @@
 }
 
 .navibar {
-    position: absolute;
+    position: fixed;
     top:0px;
-    left:0px;
     height: 44px;
     width: 100%;
     display: flex;
