@@ -28,10 +28,15 @@
         var navibar = document.createElement("div");
         navibar.className = "navibar";
 
-        var titlediv = document.createElement("div");
-        titlediv.className = "navi_title"
-        titlediv.innerHTML = this.title;
-        navibar.appendChild(titlediv);
+        if(this.title == null) {
+            navibar.className += " title";
+        }
+        else {
+            var titlediv = document.createElement("div");
+            titlediv.className = "navi_title"
+            titlediv.innerHTML = this.title;
+            navibar.appendChild(titlediv);
+        }
 
         var buttonArr = this.buttonArray;
 
@@ -72,7 +77,8 @@
             NOTICE: " a-notice",
             OK: " a-ok",
             LEFT: " p-left",
-            RIGHT: " p-right"
+            RIGHT: " p-right",
+            CENTER: "p-center"
         },
 
         makeButton: function(_title, _position, _clickCallback) {

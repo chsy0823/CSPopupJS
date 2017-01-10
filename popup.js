@@ -43,10 +43,12 @@
         var bottomdiv = document.createElement("div");
         bottomdiv.className = "pop_content";
 
-        var bottomdivtext = document.createElement("div");
-        bottomdivtext.className = "pop_content_text";
-        bottomdivtext.innerHTML = this.content;
-        bottomdiv.appendChild(bottomdivtext);
+        if(this.content != null) {
+            var bottomdivtext = document.createElement("div");
+            bottomdivtext.className = "pop_content_text";
+            bottomdivtext.innerHTML = this.content;
+            bottomdiv.appendChild(bottomdivtext);
+        }
 
         if(this.alert != null) {
             var alertMsg = document.createElement("alertMsg");
@@ -106,10 +108,14 @@
         cssClassMap: {
             OK: " ok",
             CANCEL: " cancel",
+            ACCODE: " accode",
+            ACSEARCH: " acsearch",
             LOGIN: " login",
             LEFT: " p-left",
             RIGHT: " p-right",
             CENTER: " p-center",
+            TOP: " p-top",
+            BOTTOM: " p-bottom"
         },
 
         makeButton: function(_title, _position, _clickCallback) {

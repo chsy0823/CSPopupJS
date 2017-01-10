@@ -82,6 +82,18 @@
     border: none;
     background-size: 100% 100%;
 }
+.action-btn.acsearch {
+    background: url("image/btn_acsearch.png") no-repeat top left;
+    cursor:pointer;
+    border: none;
+    background-size: 100% 100%;
+}
+.action-btn.accode {
+    background: url("image/btn_code.png") no-repeat top left;
+    cursor:pointer;
+    border: none;
+    background-size: 100% 100%;
+}
 
 .action-btn.p-center {
     width: 80%;
@@ -98,6 +110,18 @@
     width: 40%;
     margin-right: 5%;
 }
+
+.action-btn.p-top {
+    width: 80%;
+    margin-top: 5%;
+}
+
+
+.action-btn.p-bottom {
+    width: 80%;
+    margin-top: 5%;
+}
+
 
 .alert-msg {
     width: 100%;
@@ -135,6 +159,19 @@
     border: none;
     background-size: 100% 100%;
 }
+.navi_btn.a-list {
+    background: url("image/list.png") no-repeat top left;
+    cursor:pointer;
+    border: none;
+    background-size: 100% 100%;
+}
+.navi_btn.a-notice {
+    background: url("image/notice.png") no-repeat top left;
+    cursor:pointer;
+    border: none;
+    background-size: 100% 100%;
+}
+
 .navi_btn.p-left {
     left:0px;
 }
@@ -144,5 +181,8 @@
 }
 
 .navibar.title {
-
+    background: url("image/title.png") no-repeat top left;
+    cursor:pointer;
+    border: none;
+    background-size: 100% 100%;
 }
