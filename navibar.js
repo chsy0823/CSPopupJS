@@ -59,7 +59,7 @@
     Navibar.prototype.append = function() {
         //console.log("show");
         var popupElement = this.createDOMElement();
-        document.body.prepend(popupElement);
+        document.body.appendChild(popupElement);
 
     };
 

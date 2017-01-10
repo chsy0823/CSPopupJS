@@ -16,7 +16,7 @@
         return this.onClickCallback;
     };
 
-    var Popup = function(_title, _content, _buttonArray, _alert=null) {
+    var Popup = function(_title, _content, _buttonArray, _alert) {
 
         this.title = _title;
         this.content = _content;
@@ -115,7 +115,7 @@
         makeButton: function(_title, _position, _clickCallback) {
             return new ActionButton(_title, _position, _clickCallback);
         },
-        makePopup: function(_title, _content, _buttonArray, _alert=null) {
+        makePopup: function(_title, _content, _buttonArray, _alert) {
             return new Popup(_title, _content, _buttonArray, _alert);
         }
     };
