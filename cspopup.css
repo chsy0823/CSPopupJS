@@ -1,11 +1,12 @@
 .popup_back {
     width : 100%;
     height : 100%;
-    position: absolute;
+    position: fixed;
     top :0px;
     left: 0px;
     background-color:  rgba(0,0,0,0.5);
     color : white;
+    z-index: 999;
 }
 
 .pop_frame {
@@ -14,15 +15,19 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 70%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.7);
     color : white;
-
     min-width: 180px;
+    max-height: 46vh;
+}
 
+.pop_frame.notice {
+    width: 85%;
+    overflow-y: scroll;
 }
 
 .pop_title {
-    width : 96%;
+    width : 95%;
     height : 25%;
     color: white;
     display: flex;
@@ -44,7 +49,10 @@
     text-align: center;
     padding: 5% 5%;
 }
-
+.pop_content.all {
+    width: 99%;
+    padding: 0 0;
+}
 .pop_content_text {
 
     width : 100%;
@@ -95,6 +103,16 @@
     background-size: 100% 100%;
 }
 
+.action-btn.code_input {
+    border: none;
+    font-size: 150%;
+    border-radius: 5px;
+    cursor:pointer;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
 .action-btn.p-center {
     width: 80%;
     margin: auto;
@@ -122,6 +140,82 @@
     margin-top: 5%;
 }
 
+.action-btn.p-middle {
+    width: 80%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.noticeitem {
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid white;
+
+}
+.noticeitem_ic {
+    width: 10vw;
+    height: 10vw;
+    float: left;
+}
+.noticeitem_msg {
+    height: 100%;
+    font-size: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.noticeitem_time {
+    float: right;
+    height: 8vh;
+    position: absolute;
+    right: 4%;
+}
+
+.splitx {
+    width: 1px;
+    height: 4vh;
+    background-color: rgb(255,255,255);
+    position: absolute;
+    right: 20%;
+}
+
+.date {
+    color: lightgray;
+    font-size: 50%;
+    height: 50%;
+    display: flex;
+    align-items: flex-end;
+}
+.time {
+    color: lightgray;
+    font-size: 50%;
+    height: 50%;
+}
+
+.noticeitem_ic.notice {
+
+    background: url("image/ic_notice.png") no-repeat top left;
+    background-size: 100% 100%;
+}
+.noticeitem_ic.event {
+    background: url("image/ic_event.png") no-repeat top left;
+    background-size: 100% 100%;
+
+}
+.noticeitem_ic.video {
+    background: url("image/ic_video.png") no-repeat top left;
+    background-size: 100% 100%;
+}
+.noticeitem_ic.test {
+    background: url("image/ic_test.png") no-repeat top left;
+    background-size: 100% 100%;
+}
+.noticeitem_ic.board {
+    background: url("image/ic_board.png") no-repeat top left;
+    background-size: 100% 100%;
+}
 
 .alert-msg {
     width: 100%;
