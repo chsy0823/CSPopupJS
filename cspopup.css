@@ -265,6 +265,12 @@
     border: none;
     background-size: 100% 100%;
 }
+.navi_btn.a-close {
+    background: url("image/close.png") no-repeat top left;
+    cursor:pointer;
+    border: none;
+    background-size: 100% 100%;
+}
 
 .navi_btn.p-left {
     left:0px;
