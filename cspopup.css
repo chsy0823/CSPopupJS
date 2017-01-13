@@ -271,6 +271,18 @@
     border: none;
     background-size: 100% 100%;
 }
+.navi_btn.a-favorite {
+    background: url("image/favorite.png") no-repeat top left;
+    cursor:pointer;
+    border: none;
+    background-size: 100% 100%;
+}
+.navi_btn.a-point {
+    background: url("image/point.png") no-repeat top left;
+    cursor:pointer;
+    border: none;
+    background-size: 100% 100%;
+}
 
 .navi_btn.p-left {
     left:0px;
@@ -285,4 +297,25 @@
     cursor:pointer;
     border: none;
     background-size: 100% 100%;
+}
+.navi_title {
+    width: 100%;
+    height: 44px;
+    
+}
+.title_top {
+    height: 50%;
+    width: 100%;
+    font-size: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.title_bottom {
+    height: 50%;
+    width: 100%;
+    font-size: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

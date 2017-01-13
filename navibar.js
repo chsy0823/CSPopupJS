@@ -17,10 +17,11 @@
         return this.onClickCallback;
     };
 
-    var Navibar = function(_title, _buttonArray) {
+    var Navibar = function(_title, _buttonArray, _subTitle) {
 
         this.title = _title;
         this.buttonArray = _buttonArray;
+        this.subTitle = _subTitle;
     };
 
     Navibar.prototype.createDOMElement = function() {
@@ -33,9 +34,26 @@
         }
         else {
             var titlediv = document.createElement("div");
-            titlediv.className = "navi_title"
-            titlediv.innerHTML = this.title;
-            navibar.appendChild(titlediv);
+            titlediv.className = "navi_title_default";
+
+            if(this.subTitle != null) {
+
+                var title = document.createElement("div");
+                title.className = "title_top";
+                title.innerHTML = this.title;
+
+                var subtitle = document.createElement("div");
+                subtitle.className = "title_bottom";
+                subtitle.innerHTML = this.subTitle;
+
+                titlediv.appendChild(title);
+                titlediv.appendChild(subtitle);
+                navibar.appendChild(titlediv);
+            }
+            else {
+                titlediv.innerHTML = this.title;
+                navibar.appendChild(titlediv);
+            }
         }
 
         var buttonArr = this.buttonArray;
@@ -74,6 +92,7 @@
             BACK: " a-back",
             LIST: " a-list",
             FAVORITE: " a-favorite",
+            POINT: " a-point",
             NOTICE: " a-notice",
             OK: " a-ok",
             LEFT: " p-left",
@@ -84,8 +103,8 @@
         makeButton: function(_title, _position, _clickCallback) {
             return new BarButtonItem(_title, _position, _clickCallback);
         },
-        makeNavibar: function(_title, _buttonArray) {
-            return new Navibar(_title, _buttonArray);
+        makeNavibar: function(_title, _buttonArray, _subTitle) {
+            return new Navibar(_title, _buttonArray, _subTitle);
         }
     };
 
