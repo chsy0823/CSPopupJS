@@ -167,6 +167,97 @@
         }
     };
 
+    /////// SubjectPopup
+    var SubjectPopup = function(_num, _tip, _okCallback) {
+        this.num = _num;
+        this.tip = _tip;
+        this.okCallback = _okCallback;
+        //this.picCallack = _picCallback;
+    };
+    SubjectPopup.prototype.createDOMElement = function() {
+
+        var backdiv = document.createElement("div");
+        backdiv.className = "popup_back";
+        backdiv.setAttribute("id","popback");
+
+        var popdiv = document.createElement("div");
+        popdiv.className = "pop_frame";
+
+        var titleCont = document.createElement("div");
+        titleCont.className = "title_cont";
+
+        var title = document.createElement("div");
+        title.className = "sbj_title";
+        title.innerHTML = this.num + "번 문항 주관식 답";
+
+        var tip = document.createElement("div");
+        tip.className = "sbj_tip";
+        tip.innerHTML = this.tip;
+
+        var middlediv = document.createElement("div");
+        middlediv.className = "input_middle";
+
+        var textField = document.createElement("textarea");
+        textField.className = "answer_input";
+        textField.setAttribute("placeholder","주관식 답안을 작성해주세요.(30자이내)");
+        textField.setAttribute("maxlength","30");
+        textField.onclick = function(e) {
+
+        };
+
+        var bottomdiv = document.createElement("div");
+        bottomdiv.className = "pop_content";
+
+        var okbtn = document.createElement("BUTTON");
+        okbtn.onclick = this.okCallback;
+        okbtn.className = "action-btn p-left mt ok";
+
+        var cancelbtn = document.createElement("BUTTON");
+        cancelbtn.onclick = function() {
+            if(confirm("주관식 입력을 중단하시겠습니까?")) {
+                backdiv.remove();
+            }
+        };
+        cancelbtn.className = "action-btn p-right mt cancel";
+
+        var picbtn = document.createElement("BUTTON");
+        picbtn.className = "action-btn p-center mt getPic";
+        picbtn.onclick = function(e) {
+            //this.picCallack();
+        };
+
+        titleCont.appendChild(title);
+        titleCont.appendChild(tip);
+
+        middlediv.appendChild(textField);
+        bottomdiv.appendChild(picbtn);
+        bottomdiv.appendChild(okbtn);
+        bottomdiv.appendChild(cancelbtn);
+
+        popdiv.appendChild(titleCont);
+        popdiv.appendChild(middlediv);
+        popdiv.appendChild(bottomdiv);
+        backdiv.appendChild(popdiv);
+
+        return backdiv;
+    };
+    SubjectPopup.prototype.show = function() {
+        //console.log("show");
+        var popupElement = this.createDOMElement();
+        document.body.appendChild(popupElement);
+
+    };
+    SubjectPopup.prototype.hide = function() {
+        //console.log("hide");
+
+        var div = document.getElementById("popback");
+        console.log(div);
+
+        if(div != null) {
+            div.remove();
+        }
+    };
+
     /////// NoticePopup
     var NoticePopup = function(_title, _itemArray) {
         this.title = _title;
@@ -281,6 +372,9 @@
         },
         makePopup: function(_title, _content, _buttonArray, _alert) {
             return new Popup(_title, _content, _buttonArray, _alert);
+        },
+        makeSubjectPopup: function(_num, _tip, _okCallback) {
+            return new SubjectPopup(_num, _tip, _okCallback);
         },
         makeNotice: function(_title, _itemArray) {
             return new NoticePopup(_title, _itemArray);
