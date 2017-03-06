@@ -348,6 +348,13 @@
     border: none;
     background-size: 100% 100%;
 }
+.navi_btn.a-ok {
+    background: url("image/btn_okWrite.png") no-repeat top left;
+    cursor:pointer;
+    border: none;
+    background-size: 100% 100%;
+}
+
 
 .navi_btn.p-left {
     left:0px;
