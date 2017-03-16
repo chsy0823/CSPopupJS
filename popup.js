@@ -172,10 +172,14 @@
         this.num = _num;
         this.tip = _tip;
         this.okCallback = _okCallback;
+        this.fileCount = 0;
         //this.picCallack = _picCallback;
     };
     SubjectPopup.prototype.createDOMElement = function() {
-
+        
+        var subPop = this;
+        var appendFiles = new Array();
+        
         var backdiv = document.createElement("div");
         backdiv.className = "popup_back";
         backdiv.setAttribute("id","popback");
@@ -202,14 +206,22 @@
         textField.setAttribute("placeholder","주관식 답안을 작성해주세요.(30자이내)");
         textField.setAttribute("maxlength","30");
         textField.onclick = function(e) {
-
+            
         };
 
         var bottomdiv = document.createElement("div");
         bottomdiv.className = "pop_content";
-
+        
+        var picCont = document.createElement("div");
+        picCont.className = "pic_cont";
+        
+        bottomdiv.appendChild(picCont);
+        
         var okbtn = document.createElement("BUTTON");
-        okbtn.onclick = this.okCallback;
+        okbtn.onclick = function() {
+            subPop.okCallback(textField.value, appendFiles);
+            backdiv.remove();
+        };
         okbtn.className = "action-btn p-left mt ok";
 
         var cancelbtn = document.createElement("BUTTON");
@@ -219,13 +231,47 @@
             }
         };
         cancelbtn.className = "action-btn p-right mt cancel";
+        
+        var picInput = document.createElement("input");
+        picInput.setAttribute("type","file");
+        picInput.setAttribute("accept","image/*");
+        picInput.className = "input_hidden";
+        bottomdiv.appendChild(picInput);
+        
+        picInput.onchange = function(e) {
+            
+            if ('files' in picInput) {
+                var file = picInput.files[0];
+                var reader  = new FileReader();
 
+                reader.onloadend = function () {
+                    var imgItem = document.createElement("img");
+                    imgItem.className = "add_img";
+                    imgItem.setAttribute("src",reader.result);
+                    picCont.appendChild(imgItem);
+                    subPop.fileCount++;
+                    appendFiles.push(file);
+                }
+
+                if (file) {
+                    reader.readAsDataURL(file);
+                } else {
+                    //preview.src = "";
+                }
+            }
+        }
+        
         var picbtn = document.createElement("BUTTON");
         picbtn.className = "action-btn p-center mt getPic";
         picbtn.onclick = function(e) {
             //this.picCallack();
+            if(subPop.fileCount < 4)
+                picInput.click();
+            else 
+                alert("파일등록은 최대 4개까지입니다.");
         };
-
+        
+        
         titleCont.appendChild(title);
         titleCont.appendChild(tip);
 
