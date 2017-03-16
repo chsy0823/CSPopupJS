@@ -312,6 +312,12 @@
     height: 44px;
     width: 44px;
 }
+.navi_btn.a-check {
+    background: url("image/btn_check.png") no-repeat top left;
+    cursor:pointer;
+    border: none;
+    background-size: 100% 100%;
+}
 .navi_btn.a-back {
     background: url("image/back.png") no-repeat top left;
     cursor:pointer;

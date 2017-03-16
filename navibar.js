@@ -94,6 +94,7 @@
             FAVORITE: " a-favorite",
             POINT: " a-point",
             NOTICE: " a-notice",
+            CHECK: " a-check",
             OK: " a-ok",
             LEFT: " p-left",
             RIGHT: " p-right",
